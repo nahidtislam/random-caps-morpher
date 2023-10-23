@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct MorpherView: View {
+    
+    @StateObject var vm: ViewModel = .init()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextField("input", text: $vm.userText)
+            Spacer()
+            Text(vm.morphed)
         }
     }
 }
