@@ -13,10 +13,34 @@ struct MorpherView: View {
     
     var body: some View {
         VStack {
-            TextField("input", text: $vm.userText)
-            Spacer()
+            Button("clear text", role: .destructive) {
+                vm.userText = ""
+            }
+            .disabled(vm.userText.isEmpty)
+            .frame(maxWidth: .infinity, alignment: .topTrailing)
+            TextEditor(text: $vm.userText)
+                .lineLimit(12)
+            Slider(value: sliderValue, in: 3...7, step: 1.0)
+                .onAppear {
+                    vm.upperCaseness = 4
+                }
             Text(vm.morphed)
+            Button("copy") {
+                UIPasteboard.general.setValue(vm.morphed, forPasteboardType: "public.plain-text")
+            }
+            .buttonStyle(.bordered)
+            .disabled(vm.morphed.count < 4)
         }
+        .padding()
+    }
+    
+    var sliderValue: Binding<Double> {
+        .init {
+            .init(vm.upperCaseness)
+        } set: { newValue in
+            vm.upperCaseness = .init(newValue)
+        }
+
     }
 }
 
