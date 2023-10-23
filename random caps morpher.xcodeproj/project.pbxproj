@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		251FF08F2AE71D5F00546925 /* random_caps_morpherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF08E2AE71D5F00546925 /* random_caps_morpherApp.swift */; };
-		251FF0912AE71D5F00546925 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF0902AE71D5F00546925 /* ContentView.swift */; };
+		251FF08F2AE71D5F00546925 /* RandomCapsMorpherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF08E2AE71D5F00546925 /* RandomCapsMorpherApp.swift */; };
+		251FF0912AE71D5F00546925 /* MorpherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF0902AE71D5F00546925 /* MorpherView.swift */; };
 		251FF0932AE71D6000546925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0922AE71D6000546925 /* Assets.xcassets */; };
 		251FF0972AE71D6000546925 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0962AE71D6000546925 /* Preview Assets.xcassets */; };
+		251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		251FF08B2AE71D5F00546925 /* random caps morpher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "random caps morpher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		251FF08E2AE71D5F00546925 /* random_caps_morpherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = random_caps_morpherApp.swift; sourceTree = "<group>"; };
-		251FF0902AE71D5F00546925 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		251FF08E2AE71D5F00546925 /* RandomCapsMorpherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCapsMorpherApp.swift; sourceTree = "<group>"; };
+		251FF0902AE71D5F00546925 /* MorpherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorpherView.swift; sourceTree = "<group>"; };
 		251FF0922AE71D6000546925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		251FF0942AE71D6000546925 /* random_caps_morpher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = random_caps_morpher.entitlements; sourceTree = "<group>"; };
 		251FF0962AE71D6000546925 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MorpherView+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +54,9 @@
 		251FF08D2AE71D5F00546925 /* random caps morpher */ = {
 			isa = PBXGroup;
 			children = (
-				251FF08E2AE71D5F00546925 /* random_caps_morpherApp.swift */,
-				251FF0902AE71D5F00546925 /* ContentView.swift */,
+				251FF08E2AE71D5F00546925 /* RandomCapsMorpherApp.swift */,
+				251FF0902AE71D5F00546925 /* MorpherView.swift */,
+				251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */,
 				251FF0922AE71D6000546925 /* Assets.xcassets */,
 				251FF0942AE71D6000546925 /* random_caps_morpher.entitlements */,
 				251FF0952AE71D6000546925 /* Preview Content */,
@@ -139,8 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251FF0912AE71D5F00546925 /* ContentView.swift in Sources */,
-				251FF08F2AE71D5F00546925 /* random_caps_morpherApp.swift in Sources */,
+				251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */,
+				251FF0912AE71D5F00546925 /* MorpherView.swift in Sources */,
+				251FF08F2AE71D5F00546925 /* RandomCapsMorpherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +284,12 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
@@ -318,11 +323,12 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
