@@ -12,6 +12,7 @@
 		251FF0932AE71D6000546925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0922AE71D6000546925 /* Assets.xcassets */; };
 		251FF0972AE71D6000546925 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0962AE71D6000546925 /* Preview Assets.xcassets */; };
 		251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */; };
+		258982DF2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		251FF0942AE71D6000546925 /* random_caps_morpher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = random_caps_morpher.entitlements; sourceTree = "<group>"; };
 		251FF0962AE71D6000546925 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MorpherView+ViewModel.swift"; sourceTree = "<group>"; };
+		258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		251FF0822AE71D5F00546925 = {
 			isa = PBXGroup;
 			children = (
+				258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */,
 				251FF08D2AE71D5F00546925 /* random caps morpher */,
 				251FF08C2AE71D5F00546925 /* Products */,
 			);
@@ -144,6 +147,7 @@
 			files = (
 				251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */,
 				251FF0912AE71D5F00546925 /* MorpherView.swift in Sources */,
+				258982DF2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift in Sources */,
 				251FF08F2AE71D5F00546925 /* RandomCapsMorpherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
