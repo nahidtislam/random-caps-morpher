@@ -13,5 +13,8 @@ struct RandomCapsMorpherApp: App {
         WindowGroup {
             MorpherView()
         }
+        #if os(macOS)
+        .windowStyle(.hiddenTitleBar)
+        #endif
     }
 }
