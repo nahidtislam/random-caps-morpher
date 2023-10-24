@@ -51,5 +51,14 @@ extension MorpherView {
             
             return output
         }
+        
+        public func copyToClipboard() {
+            #if os(macOS)
+            NSPasteboard.general.declareTypes([.string], owner: nil)
+            NSPasteboard.general.setString(morphed, forType: .string)
+            #else
+            UIPasteboard.general.setValue(morphed, forPasteboardType: "public.plain-text")
+            #endif
+        }
     }
 }
