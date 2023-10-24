@@ -12,34 +12,24 @@ struct MorpherView: View {
     @StateObject var vm: ViewModel = .init()
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
+    @State private var isLandscape: Bool = false
     
     var body: some View {
         VStack {
-            Button(role: .destructive) {
-                vm.userText = ""
-            } label: {
-                Label("clear", systemImage: vm.morphedTextIsEmpty ? "clear.fill" : "clear")
-            }
-            .disabled(vm.userText.isEmpty)
+            clearButton
             .frame(maxWidth: .infinity, alignment: .topTrailing)
             
-            TextEditor(text: $vm.userText)
-                .padding()
-                .background {
-                    Color.textBackgroundColor
+            if compactHeight {
+                HStack {
+                    displayableData
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                #if os(macOS)
-                .frame(minWidth: 800, minHeight: 450)
-                #endif
-            if vm.morphedTextIsEmpty {
-                directionToUser
             } else {
+                
                 VStack {
-                    controls
-                    output
+                    displayableData
                 }
-                .transition(.move(edge: .bottom).combined(with: .opacity).combined(with: .scale(scale: 0.85, anchor: .bottom)).animation(controlTransitionAnimation))
             }
         }
         .animation(.spring(response: 0.2, dampingFraction: 2, blendDuration: 0.1), value: vm.morphedTextIsEmpty)
@@ -47,6 +37,30 @@ struct MorpherView: View {
         .background {
             bg
             .ignoresSafeArea()
+        }
+        .onRotate { orientation in
+            isLandscape = orientation != .portrait
+        }
+    }
+    
+    private var compactHeight: Bool {
+        verticalSizeClass == .compact && isLandscape
+    }
+    
+    @ViewBuilder
+    private var displayableData: some View {
+        inputField
+            #if os(macOS)
+            .frame(minWidth: 800, minHeight: 450)
+            #endif
+        if vm.morphedTextIsEmpty {
+            directionToUser
+        } else {
+            VStack {
+                controls
+                output
+            }
+            .transition((compactHeight ? AnyTransition.identity : .move(edge: .bottom)).combined(with: .opacity).combined(with: .scale(scale: 0.85, anchor: compactHeight ? .leading : .bottom)).animation(controlTransitionAnimation))
         }
     }
     
@@ -73,18 +87,41 @@ struct MorpherView: View {
         return colorScheme == .dark ? dark : light
     }
     
+    private var inputField: some View {
+        TextEditor(text: $vm.userText)
+            .padding()
+            .background {
+                Color.textBackgroundColor
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+    }
+    
+    private var clearButton: some View {
+        Button(role: .destructive) {
+            vm.userText = ""
+        } label: {
+            Label("clear", systemImage: vm.morphedTextIsEmpty ? "clear.fill" : "clear")
+        }
+        .disabled(vm.userText.isEmpty)
+    }
+    
+    private var copyButton: some View {
+        Button(action: vm.copyToClipboard) {
+            Label("copy", systemImage: "arrow.right.doc.on.clipboard")
+        }
+        .buttonStyle(.bordered)
+        .keyboardShortcut(KeyEquivalent("c"), modifiers: .command)
+        .disabled(vm.morphed.count < 4)
+    }
+    
     private var controls: some View {
         HStack {
+            if compactHeight { copyButton }
             Slider(value: sliderValue, in: 3...7, step: 1.0)
-                .onAppear {
-                    vm.upperCaseness = 4
-                }
-            Button(action: vm.copyToClipboard) {
-                Label("copy", systemImage: "arrow.right.doc.on.clipboard")
-            }
-            .buttonStyle(.bordered)
-            .keyboardShortcut(KeyEquivalent("c"), modifiers: .command)
-            .disabled(vm.morphed.count < 4)
+            if !compactHeight { copyButton }
+        }
+        .onAppear {
+            vm.upperCaseness = 4
         }
     }
     
@@ -100,7 +137,7 @@ struct MorpherView: View {
     }
     
     private var directionToUser: some View {
-        Text("enter text above")
+        Text("enter text ") + Text(compactHeight ? "on side" : "above")
     }
 }
 
