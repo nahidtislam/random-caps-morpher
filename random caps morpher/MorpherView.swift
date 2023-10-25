@@ -60,12 +60,20 @@ struct MorpherView: View {
                 controls
                 output
             }
-            .transition((compactHeight ? AnyTransition.identity : .move(edge: .bottom)).combined(with: .opacity).combined(with: .scale(scale: 0.85, anchor: compactHeight ? .leading : .bottom)).animation(controlTransitionAnimation))
+            .transition(controlTransition)
         }
     }
     
-    private var controlTransitionAnimation: Animation {
-        .spring(response: 0.3, dampingFraction: 1.5, blendDuration: 0.2).speed(1.5)
+    private var controlTransition: AnyTransition {
+        let base: AnyTransition = compactHeight ? .identity : .move(edge: .bottom)
+        let scaleAnchor: UnitPoint = compactHeight ? .leading : .bottom
+        
+        let animation: Animation = .spring(response: 0.3, dampingFraction: 1.5, blendDuration: 0.2).speed(1.5)
+        
+        return base
+                .combined(with: .opacity)
+                .combined(with: .scale(scale: 0.85, anchor: scaleAnchor))
+                .animation(animation)
     }
     
     private var sliderValue: Binding<Double> {
