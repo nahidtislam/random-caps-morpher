@@ -26,10 +26,10 @@ struct MorpherView: View {
                     displayableData
                 }
             } else {
-                
                 VStack {
                     displayableData
                 }
+                .padding(.all, vm.morphedTextIsEmpty ? -8 : 0)
             }
         }
         .animation(.spring(response: 0.2, dampingFraction: 2, blendDuration: 0.1), value: vm.morphedTextIsEmpty)
