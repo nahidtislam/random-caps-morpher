@@ -18,8 +18,16 @@ struct MorpherView: View {
     
     var body: some View {
         VStack {
-            clearButton
-            .frame(maxWidth: .infinity, alignment: .topTrailing)
+            HStack {
+                if #available(iOS 17, *), #available(macOS 14, *) {
+                    Text(vm.morphed.count.description)
+                        .contentTransition(.numericText(value: Double(vm.morphed.count)))
+                }
+                
+                Spacer()
+                clearButton
+            }
+            
             
             if compactHeight {
                 HStack {
@@ -38,9 +46,11 @@ struct MorpherView: View {
             bg
             .ignoresSafeArea()
         }
+        #if os(iOS)
         .onRotate { orientation in
             isLandscape = orientation != .portrait
         }
+        #endif
     }
     
     private var compactHeight: Bool {
@@ -135,10 +145,10 @@ struct MorpherView: View {
     
     private var output: some View {
         Text(vm.morphed)
+            .contentTransition(.interpolate)
             .padding()
             .frame(maxWidth: .infinity, alignment: .trailing)
             .background {
-                
                 Color.systemBackground.opacity(colorScheme == .dark ? 0.2 : 0.6)
             }
             .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
