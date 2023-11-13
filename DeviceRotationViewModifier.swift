@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
 
@@ -26,3 +27,4 @@ extension View {
         self.modifier(DeviceRotationViewModifier(action: action))
     }
 }
+#endif
