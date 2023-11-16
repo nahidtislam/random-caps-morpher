@@ -23,6 +23,7 @@
 		251FF0942AE71D6000546925 /* random_caps_morpher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = random_caps_morpher.entitlements; sourceTree = "<group>"; };
 		251FF0962AE71D6000546925 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MorpherView+ViewModel.swift"; sourceTree = "<group>"; };
+		256CEF662B0617BD00092B2F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +41,7 @@
 		251FF0822AE71D5F00546925 = {
 			isa = PBXGroup;
 			children = (
+				256CEF662B0617BD00092B2F /* readme.md */,
 				258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */,
 				251FF08D2AE71D5F00546925 /* random caps morpher */,
 				251FF08C2AE71D5F00546925 /* Products */,
