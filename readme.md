@@ -2,12 +2,12 @@
 
 ## randomly captilise your words
 
-`no longer needing to think what letter to randomly capitilse for you!`
+`with this you'll no longer need to think which letter letter to randomly capitilse!`
 
 ## instructions
 
 1. type somthing in the textbox
-2. see how cool the output
+2. see how cool the `output` is
 3. press <kbd>⌘c</kbd> to copy `output`
 
 ### definitions
@@ -16,8 +16,14 @@
 ## known issues
 * the padding around the clear button is a little janky when there's no real texts
     * especially when running in macOS
-* the counter doesn't animate the numvers propwer;t _(feature only available on iOS 17)_
+* the counter doesn't animate the numbers properly _(feature only available on iOS 17)_
     
 ## feature; not a bug
-* the `x` in the clear button remains unfilled __but tappable__ if the there's only whitespace on the input field
+* the `x` in the clear button remains unfilled __but tappable__ if the there're only whitespaces on the textbox
 * landscape layout is only on the iPhone
+
+## coming soon
+* [] tests
+    * [] test if the real text is random
+    * [] test if increasing the capitalisation slider makes more of the output more capitalise
+
