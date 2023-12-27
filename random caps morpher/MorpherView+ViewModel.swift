@@ -13,10 +13,12 @@ extension MorpherView {
         
         @Published var userText: String
         @Published var morphed: String
+        /// the determinant on how much uppercasing we will do on output
         @Published var upperCaseness: Int
         
         @Published private(set) var morphedTextIsEmpty: Bool
-        // should be used in a notification sense
+        /// this is used for validation when it's ready to show the output to the user
+        /// should be used in a notification sense
         @Published var shouldShowMorped: Bool
         
         private var cancelables: Set<AnyCancellable> = .init()
@@ -38,6 +40,7 @@ extension MorpherView {
             setupSubscribers()
         }
         
+        /// prepares the relevant varibles to update eachother as effeciently as possible
         private func setupSubscribers() {
             $userText
                 .debounce(for: .milliseconds(75), scheduler: DispatchQueue.main)
