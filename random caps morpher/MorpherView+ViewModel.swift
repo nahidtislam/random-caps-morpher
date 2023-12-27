@@ -15,7 +15,7 @@ extension MorpherView {
         @Published var morphed: String
         @Published var upperCaseness: Int
         
-        @Published var morphedTextIsEmpty: Bool
+        @Published private(set) var morphedTextIsEmpty: Bool
         // should be used in a notification sense
         @Published var shouldShowMorped: Bool
         
