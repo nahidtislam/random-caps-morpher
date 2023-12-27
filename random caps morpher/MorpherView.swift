@@ -19,6 +19,8 @@ struct MorpherView: View {
     var body: some View {
         VStack {
             HStack {
+                // iOS 17 only as they have the nice counter API
+                // backporting not essential as it's more of a nice to have feature
                 if #available(iOS 17, *), #available(macOS 14, *) {
                     Text(vm.morphed.count.description)
                         .contentTransition(.numericText(value: Double(vm.morphed.count)))
@@ -29,6 +31,7 @@ struct MorpherView: View {
             }
             
             
+            // side-by-side view only looks good on iPhone
             if compactHeight {
                 HStack {
                     displayableData
@@ -53,6 +56,7 @@ struct MorpherView: View {
         #endif
     }
     
+    ///  determine if we on an iPhone while on landscape
     private var compactHeight: Bool {
         verticalSizeClass == .compact && isLandscape
     }
@@ -78,6 +82,8 @@ struct MorpherView: View {
         let base: AnyTransition = compactHeight ? .identity : .move(edge: .bottom)
         let scaleAnchor: UnitPoint = compactHeight ? .leading : .bottom
         
+        /// adjusts the vibe of the appearing & disapearing transition.
+        /// I also want to say even I called `.spring` to get  the animation, it will *not* making it bouncy. This is by design as bouncy animation doesn't feel in place on this app
         let animation: Animation = .spring(response: 0.3, dampingFraction: 1.5, blendDuration: 0.2).speed(1.5)
         
         return base
@@ -86,6 +92,7 @@ struct MorpherView: View {
                 .animation(animation)
     }
     
+    /// adjust ]s how nuch uppercasing do we want on output
     private var sliderValue: Binding<Double> {
         .init {
             .init(vm.upperCaseness)
@@ -95,6 +102,7 @@ struct MorpherView: View {
 
     }
     
+    /// pre-defined background colors so the app look _kinda_ unique
     private var bg: Color {
         let dark: Color
         let light: Color
@@ -109,6 +117,7 @@ struct MorpherView: View {
         TextEditor(text: $vm.userText)
             .padding()
             .background {
+                // we did that way so we can have a rounded-rec effect
                 Color.textBackgroundColor
             }
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
@@ -118,6 +127,14 @@ struct MorpherView: View {
         Button(role: .destructive) {
             vm.userText = ""
         } label: {
+            // `vm.morphedTextIsEmpty` ≠ `vm.userText.isEmpty`
+            //  - `vm.morphedTextIsEmpty` determines if we made "real changes" on output
+            //  as it accounts to triming white spaces & new lines
+            // - while `vm.userText.isEmpty` is only checking if there's any raw input
+            //  on the field from the user
+            //
+            // with that infomation, the icon on the button **remains unchanged** until the user
+            // inputs a charcter we can capitalize/uncapitalise
             Label("clear", systemImage: vm.morphedTextIsEmpty ? "clear.fill" : "clear")
         }
         .disabled(vm.userText.isEmpty)
@@ -134,6 +151,7 @@ struct MorpherView: View {
     
     private var controls: some View {
         HStack {
+            // copy button is moved depending in compact mode because I wanted to keep the user on their toes
             if compactHeight { copyButton }
             Slider(value: sliderValue, in: 3...7, step: 1.0)
             if !compactHeight { copyButton }
@@ -149,6 +167,8 @@ struct MorpherView: View {
             .padding()
             .frame(maxWidth: .infinity, alignment: .trailing)
             .background {
+                // the color really sticks out if we leave the opacity
+                // and not in a good way
                 Color.systemBackground.opacity(colorScheme == .dark ? 0.2 : 0.6)
             }
             .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
@@ -163,7 +183,8 @@ struct MorpherView: View {
     MorpherView()
 }
 
-extension Color {
+// this makes really easy to work tge colors across systems
+private extension Color {
     static var systemBackground: Color {
         #if os(macOS)
         .init(nsColor: .controlBackgroundColor)
