@@ -87,9 +87,9 @@ struct MorpherView: View {
         let animation: Animation = .spring(response: 0.3, dampingFraction: 1.5, blendDuration: 0.2).speed(1.5)
         
         return base
-                .combined(with: .opacity)
-                .combined(with: .scale(scale: 0.85, anchor: scaleAnchor))
-                .animation(animation)
+            .combined(with: .opacity)
+            .combined(with: .scale(scale: 0.85, anchor: scaleAnchor))
+            .animation(animation)
     }
     
     /// adjust ]s how nuch uppercasing do we want on output
