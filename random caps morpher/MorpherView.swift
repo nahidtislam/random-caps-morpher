@@ -113,6 +113,7 @@ struct MorpherView: View {
         return colorScheme == .dark ? dark : light
     }
     
+    /// the textfield with slight customization
     private var inputField: some View {
         TextEditor(text: $vm.userText)
             .padding()
@@ -140,6 +141,7 @@ struct MorpherView: View {
         .disabled(vm.userText.isEmpty)
     }
     
+    /// copy button with custom design and keyboard shortcut
     private var copyButton: some View {
         Button(action: vm.copyToClipboard) {
             Label("copy", systemImage: "arrow.right.doc.on.clipboard")
@@ -149,6 +151,7 @@ struct MorpherView: View {
         .disabled(vm.morphed.count < 4)
     }
     
+    /// let's the user determine how much capitalization the output should have and the button to copy to clipboard
     private var controls: some View {
         HStack {
             // copy button is moved depending in compact mode because I wanted to keep the user on their toes
@@ -174,6 +177,7 @@ struct MorpherView: View {
             .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
     
+    /// for when the input field is empty (exclusing whitespaces)
     private var directionToUser: some View {
         Text("enter text ") + Text(compactHeight ? "on side" : "above")
     }
