@@ -37,6 +37,7 @@ extension MorpherView {
             
             self.cancelables = .init()
             
+            // start taking the powers of combine
             setupSubscribers()
         }
         
