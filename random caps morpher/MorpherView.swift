@@ -22,8 +22,9 @@ struct MorpherView: View {
                 // iOS 17 only as they have the nice counter API
                 // backporting not essential as it's more of a nice to have feature
                 if #available(iOS 17, *), #available(macOS 14, *) {
-                    Text(vm.morphed.count.description)
+                    Text(vm.morphed.count, format: .number)
                         .contentTransition(.numericText(value: Double(vm.morphed.count)))
+                        .animation(.default, value: vm.morphed.count)
                 }
                 
                 Spacer()

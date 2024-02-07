@@ -16,7 +16,7 @@
 ## known issues
 * the padding around the clear button is a little janky when there's no real texts
     * especially when running in macOS
-* the counter doesn't animate the numbers properly _(feature only available on iOS 17)_
+* [solved] the counter doesn't animate the numbers properly _(feature only available on iOS 17)_
     
 ## feature; not a bug
 * the `x` in the clear button remains unfilled __but tappable__ if the there're only whitespaces on the textbox
