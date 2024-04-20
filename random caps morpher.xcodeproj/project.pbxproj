@@ -13,6 +13,7 @@
 		251FF0972AE71D6000546925 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0962AE71D6000546925 /* Preview Assets.xcassets */; };
 		251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */; };
 		258982DF2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */; };
+		258C6E5C2BD452220064A39D /* Color+PlatformAgnostic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C6E5B2BD452220064A39D /* Color+PlatformAgnostic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MorpherView+ViewModel.swift"; sourceTree = "<group>"; };
 		256CEF662B0617BD00092B2F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
+		258C6E5B2BD452220064A39D /* Color+PlatformAgnostic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+PlatformAgnostic.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 		251FF0822AE71D5F00546925 = {
 			isa = PBXGroup;
 			children = (
+				258C6E5B2BD452220064A39D /* Color+PlatformAgnostic.swift */,
 				256CEF662B0617BD00092B2F /* readme.md */,
 				258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */,
 				251FF08D2AE71D5F00546925 /* random caps morpher */,
@@ -150,6 +153,7 @@
 				251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */,
 				251FF0912AE71D5F00546925 /* MorpherView.swift in Sources */,
 				258982DF2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift in Sources */,
+				258C6E5C2BD452220064A39D /* Color+PlatformAgnostic.swift in Sources */,
 				251FF08F2AE71D5F00546925 /* RandomCapsMorpherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
