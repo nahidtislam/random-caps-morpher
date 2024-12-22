@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-// this makes really easy to work tge colors across systems
-private extension Color {
+// this makes really easy to work the colors across systems
+public extension Color {
     static var systemBackground: Color {
         #if os(macOS)
         .init(nsColor: .controlBackgroundColor)

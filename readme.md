@@ -1,12 +1,12 @@
 #  random caps morpher
 
-## randomly captilise your words
+## randomly capitalise your words
 
-`with this you'll no longer need to think which letter letter to randomly capitilse!`
+`with this you'll no longer need to think which letter letter to randomly capitalise!`
 
 ## instructions
 
-1. type somthing in the textbox
+1. type something in the textbox
 2. see how cool the `output` is
 3. press <kbd>⌘c</kbd> to copy `output`
 
