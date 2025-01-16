@@ -12,6 +12,7 @@
 		251FF0932AE71D6000546925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0922AE71D6000546925 /* Assets.xcassets */; };
 		251FF0972AE71D6000546925 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251FF0962AE71D6000546925 /* Preview Assets.xcassets */; };
 		251FF09E2AE71E9500546925 /* MorpherView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FF09D2AE71E9500546925 /* MorpherView+ViewModel.swift */; };
+		2560855F2D0C6C2A0039AB90 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 2560855E2D0C6C2A0039AB90 /* AsyncAlgorithms */; };
 		258982DF2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258982DE2AE86C20007C3EC5 /* DeviceRotationViewModifier.swift */; };
 		258C6E5C2BD452220064A39D /* Color+PlatformAgnostic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C6E5B2BD452220064A39D /* Color+PlatformAgnostic.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2560855F2D0C6C2A0039AB90 /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +126,9 @@
 				Base,
 			);
 			mainGroup = 251FF0822AE71D5F00546925;
+			packageReferences = (
+				2560855D2D0C6C2A0039AB90 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+			);
 			productRefGroup = 251FF08C2AE71D5F00546925 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,6 +380,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2560855D2D0C6C2A0039AB90 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2560855E2D0C6C2A0039AB90 /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2560855D2D0C6C2A0039AB90 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 251FF0832AE71D5F00546925 /* Project object */;
 }
